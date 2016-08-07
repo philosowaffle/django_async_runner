@@ -1,9 +1,9 @@
 # django_async_runner
-A very simple async runner for django
+A very simple barebones async runner for django
 
 Modified from: http://stancarney.co/2013/01/simple-django-asynchronous-processing/
 
-This async_runner works by creating Task objects.  Each of these Task objects contains a python script to be executed.  A async_runner loops over the Tasks table repeatedly looking for Tasks to execute.  It will attempt to execute a given Task a set number of times before giving up.  When the async_runner runs out of Tasks to execute it will cancel itself.  The async_runner also looks for a stop task in the table and will cancel its run when it sees it.  This async runner is simple enough that any of the aforementioned behaviour can be easily modified to meet your needs.
+This async_runner works by creating Task objects that are added to a queue.  Each of these Task objects contains a python script to be executed.  A async_runner loops over the Tasks table repeatedly looking for Tasks to execute.  It will attempt to execute a given Task a set number of times before giving up.  When the async_runner runs out of Tasks to execute it will cancel itself.  The async_runner also looks for a stop task in the table and will cancel its run when it sees it.  This async runner is simple enough that any of the aforementioned behaviour can be easily modified to meet your needs.
 
 Add the objects found in `models.py` to your applications existing `models.py`.  Copy paste the `async_runner.py` file at the same level as your applications `models.py`.
 
