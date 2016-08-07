@@ -1,5 +1,8 @@
 import logging
-import sqlite3
+
+# You will need to add imports for any dependencies your Task scripts have.  For instance, if your Tasks make updates to a
+# sqlite DB then you should import sqlite3 here.
+# import sqlite3
 
 from time import sleep
 
@@ -52,6 +55,8 @@ def start():
                         # Delete on success
                         Task.objects.filter(id=task.id).delete()
                     else:
+                        # Currently stopping the async_runner if no Tasks remain. Edit this to change
+                        # this behavior.
                         current_task_id = None
                         Async.objects.first().delete()
                         stop = True
@@ -63,7 +68,6 @@ def start():
                 if current_task_id:
                     with transaction.atomic():
                         tasks = Task.objects.filter(id = current_task_id, executed = False).order_by(id)
-                        # tasks = Task.objects.raw('SELECT * FROM async_task at WHERE at.id = %s and at.executed = false ORDER BY at.id FOR UPDATE', [current_task_id])
                         if len(tasks):
                             task = tasks[0]
                             task.executed = True
