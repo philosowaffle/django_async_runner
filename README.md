@@ -7,6 +7,8 @@ This async_runner works by creating Task objects that are added to a queue.  Eac
 
 Add the objects found in `models.py` to your applications existing `models.py`.  Copy paste the `async_runner.py` file at the same level as your applications `models.py`.
 
+<a href="https://www.buymeacoffee.com/philosowaffle" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
 ## Example Usage
 
 ### Simple Example
